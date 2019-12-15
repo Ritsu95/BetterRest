@@ -22,24 +22,18 @@ struct ContentView: View {
         NavigationView {
             
             Form {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("¿Cuándo te quieres despertar?")
-                        .font(.headline)
+                Section(header: Text("¿Cuándo te quieres despertar?")) {
                     DatePicker("Elige la hora", selection: $wakeUp, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                 }
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("¿Cuanto quieres dormir?")
-                        .font(.headline)
+                Section(header: Text("¿Cuanto quieres dormir?")) {
                     Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
                         Text("\(sleepAmount, specifier: "%g") horas")
                     }
                 }
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("¿Cuánto café tomas?")
-                        .font(.headline)
+                Section(header: Text("¿Cuánto café tomas?")) {
                     Stepper(value: $coffeeAmount, in: 0...20) {
                         if coffeeAmount == 1 {
                             Text("1 café")
